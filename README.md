@@ -76,11 +76,11 @@ export default defineConfig([
 
 Code-based routing is implemented in `src/router.tsx` with page components under `src/routes/`:
 
-| File | Purpose |
-|------|---------|
-| `src/routes/RootLayout.tsx` | Shared layout, navigation, theme toggle, footer |
-| `src/routes/IndexPage.tsx` | Home page with counter (migrated from `App.tsx`) |
-| `src/routes/AboutPage.tsx` | Example secondary route |
+| File                        | Purpose                                          |
+| --------------------------- | ------------------------------------------------ |
+| `src/routes/RootLayout.tsx` | Shared layout, navigation, theme toggle, footer  |
+| `src/routes/IndexPage.tsx`  | Home page with counter (migrated from `App.tsx`) |
+| `src/routes/AboutPage.tsx`  | Example secondary route                          |
 
 The router is mounted in `src/main.tsx` via `<RouterProvider router={router} />`. Devtools appear in development (bottom-right).
 
@@ -94,17 +94,22 @@ export default function ContactPage() {
 
 // Amend src/router.tsx
 import ContactPage from '@/routes/ContactPage'
-const contactRoute = createRoute({ getParentRoute: () => rootRoute, path: 'contact', component: ContactPage })
+const contactRoute = createRoute({
+  getParentRoute: () => rootRoute,
+  path: 'contact',
+  component: ContactPage,
+})
 const routeTree = rootRoute.addChildren([indexRoute, aboutRoute, contactRoute])
 ```
 
 Then link to it:
 
 ```tsx
-<Link to="/contact" className="text-primary underline-offset-4 hover:underline">Contact</Link>
+<Link to="/contact" className="text-primary underline-offset-4 hover:underline">
+  Contact
+</Link>
 ```
 
 ### Error & pending boundaries
 
 `router.tsx` provides default error and loading components. Customize by passing `defaultErrorComponent` and `defaultPendingComponent` when creating the router.
-

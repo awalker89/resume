@@ -1,0 +1,19 @@
+rules_version = '2';
+
+service cloud.firestore {
+  match /databases/{database}/documents {
+
+    // User profile documents: allow authenticated (including anonymous) user
+    // to create/read/update their own document. Deny deletes (optional) for safety.
+    match /users/{userId} {
+      allow create: if request.auth != null && request.auth.uid == userId;
+      allow read, update: if request.auth != null && request.auth.uid == userId;
+      allow delete: if false; // tighten: adjust if you need user-initiated deletes
+    }
+
+    // Add other collection rules above this catch-all as needed.
+    match /{document=**} {
+      allow read, write: if false; // default deny
+    }
+  }
+}
