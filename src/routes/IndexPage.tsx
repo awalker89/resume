@@ -173,7 +173,7 @@ export default function HomePage() {
             </TimelineItem>
 
             <TimelineItem
-              period="2019 — 2021"
+              period="2014 — 2021"
               title="Senior Leader, Analytics"
               organization="CoreLogic Australia"
               location="Sydney"
@@ -206,6 +206,7 @@ export default function HomePage() {
                 </li>
               </ul>
             </TimelineItem>
+            
 
             <TimelineItem
               period="2013 — 2014"
