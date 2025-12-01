@@ -12,30 +12,30 @@ export function AppShell({ children }: PropsWithChildren) {
               AI/ML Architect Resume
             </Link>
             <nav className="hidden md:flex items-center gap-4 text-sm">
-              <Link
-                to="/experience"
+              <a
+                href="/#experience"
                 className="text-muted-foreground hover:text-foreground"
               >
                 Experience
-              </Link>
-              <Link to="/skills" className="text-muted-foreground hover:text-foreground">
+              </a>
+              <a href="/#skills" className="text-muted-foreground hover:text-foreground">
                 Skills
-              </Link>
-              <Link
-                to="/projects"
+              </a>
+              <a
+                href="/#projects"
                 className="text-muted-foreground hover:text-foreground"
               >
                 Projects
-              </Link>
-              <Link
-                to="/publications"
+              </a>
+              <a
+                href="/#publications"
                 className="text-muted-foreground hover:text-foreground"
               >
                 Publications
-              </Link>
-              <Link to="/chat" className="text-primary hover:text-primary/80">
+              </a>
+              <a href="/#chat" className="text-primary hover:text-primary/80">
                 Chat
-              </Link>
+              </a>
             </nav>
           </div>
           <ThemeToggle />

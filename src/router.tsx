@@ -1,9 +1,8 @@
 import { createRouter, createRootRoute, createRoute } from '@tanstack/react-router'
 import RootLayout from '@/routes/RootLayout'
 import IndexPage from '@/routes/IndexPage'
-import ProptrackAvmPage from '@/routes/ProptrackAvmPage'
-import CorelogicAvmPage from '@/routes/CorelogicAvmPage'
-import CorelogicHedonicIndexPage from '@/routes/CorelogicHedonicIndexPage'
+import ResumeChatBotPage from '@/components/projects/ResumeChatBotPage'
+import RealEstimatePage from '@/components/projects/RealEstimatePage'
 
 const rootRoute = createRootRoute({ component: RootLayout })
 const indexRoute = createRoute({
@@ -11,29 +10,24 @@ const indexRoute = createRoute({
   path: '/',
   component: IndexPage,
 })
-const proptrackAvmRoute = createRoute({
+
+const resumeChatBotRoute = createRoute({
   getParentRoute: () => rootRoute,
-  path: '/projects/proptrack-avm',
-  component: ProptrackAvmPage,
+  path: '/projects/resume-chat-bot',
+  component: ResumeChatBotPage,
 })
 
-const corelogicAvmRoute = createRoute({
-  getParentRoute: () => rootRoute,
-  path: '/projects/corelogic-avm',
-  component: CorelogicAvmPage,
-})
 
-const corelogicHedonicIndexRoute = createRoute({
+const realEstimateRoute = createRoute({
   getParentRoute: () => rootRoute,
-  path: '/projects/corelogic-hedonic-index',
-  component: CorelogicHedonicIndexPage,
+  path: '/projects/real-estimate',
+  component: RealEstimatePage,
 })
 
 const routeTree = rootRoute.addChildren([
   indexRoute,
-  proptrackAvmRoute,
-  corelogicAvmRoute,
-  corelogicHedonicIndexRoute,
+  realEstimateRoute,
+  resumeChatBotRoute
 ])
 
 export const router = createRouter({

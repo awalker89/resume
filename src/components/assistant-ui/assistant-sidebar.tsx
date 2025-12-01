@@ -2,18 +2,18 @@ import {
   ResizableHandle,
   ResizablePanel,
   ResizablePanelGroup,
-} from "@/components/ui/resizable";
-import type { FC, PropsWithChildren } from "react";
+} from '@/components/ui/resizable'
+import type { FC, PropsWithChildren } from 'react'
 
-import { Thread } from "@/components/assistant-ui/thread";
+import { Thread } from '@/components/assistant-ui/thread'
 
 type AssistantSidebarProps = PropsWithChildren<{
-  open?: boolean;
-  onOpenChange?: (open: boolean) => void;
-  defaultSidebarSize?: number; // percentage
-  minSidebarSize?: number; // percentage
-  maxSidebarSize?: number; // percentage
-}>;
+  open?: boolean
+  onOpenChange?: (open: boolean) => void
+  defaultSidebarSize?: number // percentage
+  minSidebarSize?: number // percentage
+  maxSidebarSize?: number // percentage
+}>
 
 export const AssistantSidebar: FC<AssistantSidebarProps> = ({
   children,
@@ -46,10 +46,10 @@ export const AssistantSidebar: FC<AssistantSidebarProps> = ({
         onCollapse={() => onOpenChange?.(false)}
         onExpand={() => onOpenChange?.(true)}
         // Use style to hide when closed to avoid stray borders
-        style={{ display: open ? undefined : "none" }}
+        style={{ display: open ? undefined : 'none' }}
       >
         <Thread />
       </ResizablePanel>
     </ResizablePanelGroup>
-  );
-};
+  )
+}

@@ -1,16 +1,16 @@
-"use client";
+'use client'
 
-import { BotIcon, ChevronDownIcon } from "lucide-react";
+import { BotIcon, ChevronDownIcon } from 'lucide-react'
 
-import { type FC, forwardRef } from "react";
-import { AssistantModalPrimitive } from "@assistant-ui/react";
+import { type FC, forwardRef } from 'react'
+import { AssistantModalPrimitive } from '@assistant-ui/react'
 
-import { Thread } from "@/components/assistant-ui/thread";
-import { TooltipIconButton } from "@/components/assistant-ui/tooltip-icon-button";
+import { Thread } from '@/components/assistant-ui/thread'
+import { TooltipIconButton } from '@/components/assistant-ui/tooltip-icon-button'
 
 export const AssistantModal: FC = () => {
   return (
-    <AssistantModalPrimitive.Root defaultOpen>
+    <AssistantModalPrimitive.Root>
       {/* Move trigger to top-right and enlarge */}
       <AssistantModalPrimitive.Anchor className="aui-root aui-modal-anchor fixed bottom-8 right-8 size-16">
         <AssistantModalPrimitive.Trigger asChild>
@@ -28,49 +28,48 @@ export const AssistantModal: FC = () => {
         */}
         <div className="flex h-full w-full flex-col">
           {/* Scrollable thread area */}
-              {/*
+          {/*
                 Safe-area paddings:
                 - pb-32 reserves space for the composer and floating controls so text doesn't go under them
                 - pt-4 gives breathing room under any sticky chips/header inside Thread
               */}
-              <div className="min-h-0 flex-1 overflow-y-auto overscroll-contain px-2">
+          <div className="min-h-0 flex-1 overflow-y-auto overscroll-contain px-2">
             <Thread />
           </div>
         </div>
       </AssistantModalPrimitive.Content>
     </AssistantModalPrimitive.Root>
-  );
-};
+  )
+}
 
-type AssistantModalButtonProps = { "data-state"?: "open" | "closed" };
+type AssistantModalButtonProps = { 'data-state'?: 'open' | 'closed' }
 
-const AssistantModalButton = forwardRef<
-  HTMLButtonElement,
-  AssistantModalButtonProps
->(({ "data-state": state, ...rest }, ref) => {
-  const tooltip = state === "open" ? "Close Assistant" : "Open Assistant";
+const AssistantModalButton = forwardRef<HTMLButtonElement, AssistantModalButtonProps>(
+  ({ 'data-state': state, ...rest }, ref) => {
+    const tooltip = state === 'open' ? 'Close Assistant' : 'Open Assistant'
 
-  return (
-    <TooltipIconButton
-      variant="default"
-      tooltip={tooltip}
-      side="left"
-      {...rest}
-      className="aui-modal-button size-full rounded-full shadow transition-transform hover:scale-110 active:scale-90"
-      ref={ref}
-    >
-      <BotIcon
-        data-state={state}
-        className="aui-modal-button-closed-icon absolute size-7 transition-all data-[state=closed]:rotate-0 data-[state=open]:rotate-90 data-[state=closed]:scale-100 data-[state=open]:scale-0"
-      />
+    return (
+      <TooltipIconButton
+        variant="default"
+        tooltip={tooltip}
+        side="left"
+        {...rest}
+        className="aui-modal-button size-full rounded-full shadow transition-transform hover:scale-110 active:scale-90"
+        ref={ref}
+      >
+        <BotIcon
+          data-state={state}
+          className="aui-modal-button-closed-icon absolute size-7 transition-all data-[state=closed]:rotate-0 data-[state=open]:rotate-90 data-[state=closed]:scale-100 data-[state=open]:scale-0"
+        />
 
-      <ChevronDownIcon
-        data-state={state}
-        className="aui-modal-button-open-icon data-[state=closed]:-rotate-90 absolute size-7 transition-all data-[state=open]:rotate-0 data-[state=closed]:scale-0 data-[state=open]:scale-100"
-      />
-      <span className="aui-sr-only sr-only">{tooltip}</span>
-    </TooltipIconButton>
-  );
-});
+        <ChevronDownIcon
+          data-state={state}
+          className="aui-modal-button-open-icon data-[state=closed]:-rotate-90 absolute size-7 transition-all data-[state=open]:rotate-0 data-[state=closed]:scale-0 data-[state=open]:scale-100"
+        />
+        <span className="aui-sr-only sr-only">{tooltip}</span>
+      </TooltipIconButton>
+    )
+  }
+)
 
-AssistantModalButton.displayName = "AssistantModalButton";
+AssistantModalButton.displayName = 'AssistantModalButton'

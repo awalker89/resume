@@ -16,8 +16,25 @@ export default {
         xl: 'var(--radius-xl)',
       },
       fontFamily: {
-        sans: ['Inter', 'system-ui', 'sans-serif'],
-        mono: ['JetBrains Mono', 'monospace'],
+        // Use exact family desired to match Next.js project
+        sans: [
+          'Geist Mono',
+          'Geist Mono Fallback',
+          'ui-monospace',
+          'SFMono-Regular',
+          'Monaco',
+          'Consolas',
+          'monospace',
+        ],
+        mono: [
+          'Geist Mono',
+          'Geist Mono Fallback',
+          'ui-monospace',
+          'SFMono-Regular',
+          'Monaco',
+          'Consolas',
+          'monospace',
+        ],
       },
       spacing: {
         '4.5': '1.125rem',

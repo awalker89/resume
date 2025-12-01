@@ -11,6 +11,10 @@ service cloud.firestore {
       allow delete: if false; // tighten: adjust if you need user-initiated deletes
     }
 
+    match /graph_sessions/{sessionId} {
+      allow read: if true;
+    }
+
     // Add other collection rules above this catch-all as needed.
     match /{document=**} {
       allow read, write: if false; // default deny
